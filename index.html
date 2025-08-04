@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Qr Code Generator</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../QrCodeGenerator/assets/website-icon.svg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   </head>
+  <header>
+    <h1>QR Code Generator</h1>
+  </header>
   <body>
     <div id="main">
       <div id="generate_inputs">
@@ -17,17 +21,34 @@
           id="link_input"
         />
         <button id="generate_button" onclick="generate_qr()">Gerar</button>
-        <p id="errorP"></p>
       </div>
       <div id="download_inputs">
-        <button id="download_button" onclick="download_qr()"> <img src="../QrCodeGenerator/assets/download_icon.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px; margin-bottom: 5px;">
+        <button id="download_button" class="disabled" onclick="download_qr()">
+          <img
+            src="../QrCodeGenerator/assets/download_icon.png"
+            style="
+              width: 24px;
+              height: 24px;
+              vertical-align: middle;
+              margin-right: 8px;
+              margin-bottom: 5px;
+            "
+          />
           Baixar QR Code
         </button>
         <div id="qrContainer">
-            <img src="../QrCodeGenerator/assets/qrcode-template.png" style="width: 256px; height: 256px;">
+          <img
+            src="../QrCodeGenerator/assets/qrcode-template.png"
+            style="width: 256px; height: 256px"
+          />
         </div>
       </div>
 
+      <div class="toast_container">
+        <div class="toast">
+          <div class="toast_message"></div>
+        </div>
+      </div>
       <script src="script.js"></script>
     </div>
   </body>

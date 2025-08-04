@@ -4,12 +4,9 @@ function generate_qr(){
     const errorP = document.getElementById("errorP")
 
     if(!qr_code_link){
-        errorP.style.marginLeft = "auto"
-        errorP.style.color = "red"
-        errorP.textContent = "Insira um link"
+        show_toast("Insira um link", 3000 )
         return;
     }
-    errorP.textContent = ""
 
     qrContainer.innerHTML=""
     let qrCode
@@ -21,7 +18,7 @@ function generate_qr(){
         colorLight: "#FFFFFF",
     })
     const download_button = document.getElementById("download_button")
-    download_button.style.display = "block"
+    download_button.classList.remove("disabled")
 }
 
 function download_qr(){
@@ -31,3 +28,23 @@ function download_qr(){
     link.href = canvas.toDataURL("image/png")
     link.click()
 }
+
+function show_toast(message, timer){
+    const toast_container = document.querySelector(".toast_container")
+    const toast = document.querySelector(".toast")
+    const toast_message = document.querySelector(".toast_message")
+    toast_message.textContent = message
+    toast.classList.add("show")
+
+    setTimeout(() => toast.classList.remove("show"), timer)
+
+}
+
+const qr_code_link = document.getElementById("link_input")
+const generate_qr_btn = document.getElementById("generate_button")
+qr_code_link.addEventListener("keypress", (event) =>{
+    if(event.key == "Enter"){
+        event.preventDefault()
+        generate_qr_btn.click()
+    }
+})

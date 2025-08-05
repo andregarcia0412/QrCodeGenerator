@@ -1,24 +1,29 @@
-function generate_qr(){
+function generate_qr(QRcolor){
     const qr_code_link = document.getElementById("link_input").value.trim()
     const qrContainer = document.getElementById("qrContainer")
-    const errorP = document.getElementById("errorP")
-
+    
     if(!qr_code_link){
         show_toast("Insira um link", 3000 )
         return;
     }
-
+    
     qrContainer.innerHTML=""
     let qrCode
     qrCode = new QRCode(qrContainer, {
         text: qr_code_link,
         width: 256,
         height: 256,
-        colorDark: "#000000",
+        colorDark: QRcolor,
         colorLight: "#FFFFFF",
     })
     const download_button = document.getElementById("download_button")
     download_button.classList.remove("disabled")
+    const color_input = document.getElementById("color_input")
+    color_input.classList.remove("disabled")
+    color_input.removeAttribute("disabled")
+    const select_p = document.getElementById("label_color_input")
+    select_p.classList.remove("disabled")
+    select_p.removeAttribute("disabled")
 }
 
 function download_qr(){
@@ -48,3 +53,6 @@ qr_code_link.addEventListener("keypress", (event) =>{
         generate_qr_btn.click()
     }
 })
+
+const color_input = document.getElementById("color_input")
+color_input.addEventListener("change", () => generate_qr(color_input.value))

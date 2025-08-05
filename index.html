@@ -20,9 +20,12 @@
           size="27"
           id="link_input"
         />
-        <button id="generate_button" onclick="generate_qr()">Gerar</button>
+        <button id="generate_button" onclick="generate_qr('#000000')">Gerar</button>
       </div>
       <div id="download_inputs">
+        <input type='color' id = 'color_input' class="disabled" disabled>
+        <label for="color_input" id="label_color_input" class="disabled" disabled>Selecionar cor do QR Code:<br>(Enter para confirmar)</h>
+        </label>
         <button id="download_button" class="disabled" onclick="download_qr()">
           <img
             src="../QrCodeGenerator/assets/download_icon.png"

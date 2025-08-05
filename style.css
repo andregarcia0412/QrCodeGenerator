@@ -69,6 +69,10 @@ input{
     height: 60px;
 }
 
+#color_input{
+    width: 256px;
+}
+
 .toast_container{
     position: fixed;
     bottom: 20px;

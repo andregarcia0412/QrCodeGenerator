@@ -11,6 +11,8 @@ header{
     border-bottom: solid 1px;
     border-color: #777;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 button{
@@ -71,6 +73,41 @@ input{
 
 #color_input{
     width: 256px;
+}
+
+#chk{
+    display: none;
+}
+
+#chk:checked ~ .switch{
+    background-color: #02011d;
+}
+
+#chk:checked ~ .switch .slider{
+    transform: translateX(60px);
+}
+
+.switch{
+    position: relative;
+    background-color: #777;
+    width: 105px;
+    height: 40px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+
+
+.slider{
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 31px;
+    height: 31px;
+    transition: all .5s ease-in-out;
 }
 
 .toast_container{

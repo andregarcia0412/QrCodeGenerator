@@ -56,3 +56,13 @@ qr_code_link.addEventListener("keypress", (event) =>{
 
 const color_input = document.getElementById("color_input")
 color_input.addEventListener("change", () => generate_qr(color_input.value))
+const slider_input = document.getElementById("chk")
+const ball_image = document.getElementById("ball_img")
+slider_input.addEventListener("click", () => {
+    if (ball_image.src.includes("QrCodeGenerator/assets/sun-symbol-512.webp")){
+        ball_image.src = '../QrCodeGenerator/assets/moon-20.png'
+    } else if(ball_image.src.includes("QrCodeGenerator/assets/moon-20.png")){
+        ball_image.src = '../QrCodeGenerator/assets/sun-symbol-512.webp'
+    }
+    console.log(slider_input.value)
+})

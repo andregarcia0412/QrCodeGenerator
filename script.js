@@ -58,11 +58,27 @@ const color_input = document.getElementById("color_input")
 color_input.addEventListener("change", () => generate_qr(color_input.value))
 const slider_input = document.getElementById("chk")
 const ball_image = document.getElementById("ball_img")
+const body = document.querySelector("body")
+const header = document.querySelector("header")
+const label_download = document.getElementById("label_color_input")
+const download_inputs_div = document.getElementById("download_inputs")
 slider_input.addEventListener("click", () => {
     if (ball_image.src.includes("QrCodeGenerator/assets/sun-symbol-512.webp")){
         ball_image.src = '../QrCodeGenerator/assets/moon-20.png'
+        body.style.backgroundColor = "#222"
+        header.style.backgroundColor = "#111"
+        body.style.color = "#FFFFFF"
+        header.style.color = "#FFFFFF"
+        label_download.style.color = "#000000"
+        download_inputs_div.style.borderColor = "#777"
+
     } else if(ball_image.src.includes("QrCodeGenerator/assets/moon-20.png")){
         ball_image.src = '../QrCodeGenerator/assets/sun-symbol-512.webp'
+        body.style.backgroundColor = "#FFFFFF"
+        header.style.backgroundColor = "#FFFFFF"
+        body.style.color = "#000000"
+        header.style.color = "#000000"
+        label_download.style.color = "#000000"
+        download_inputs_div.style.borderColor = "#000000"
     }
-    console.log(slider_input.value)
 })
